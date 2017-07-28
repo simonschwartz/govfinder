@@ -10,7 +10,7 @@ before_deploy:
 deploy:
   skip_cleanup: true
   provider: surge
-  project: ./dist/
+  project: ./build/
   domain: govfinder.surge.sh
   on:
     branch: master
