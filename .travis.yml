@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - '7'
+install:
+  - yarn install
+script:
+  - yarn unit
+before_deploy:
+  - yarn build
+deploy:
+  skip_cleanup: true
+  provider: surge
+  project: ./dist/
+  domain: govfinder.surge.sh
+  on:
+    branch: master
