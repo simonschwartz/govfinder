@@ -20,6 +20,23 @@ ul {
   padding-left: 0;
 }
 
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+legend {
+  margin-bottom: .75em;
+}
+
+.label,
+.legend {
+  text-transform: uppercase;
+  color: #666;
+  font-size: .75rem;
+  font-weight: 500;
+}
+
 /*App header*/
 .app-banner {
   padding: 1.5em 0 2em;

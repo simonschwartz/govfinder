@@ -221,12 +221,7 @@ class App extends Component {
             <Row>
               {/* Search options box */}
               <Col md={4}>
-                <Paper zDepth={3}>
-                  <header>
-                    <Paper zDepth={1} className="search--header">
-                      <h2>Find projects</h2>
-                    </Paper>
-                  </header>
+                <Paper zDepth={4}>
                   <form
                     onSubmit={e =>
                       this.fetchSearchResults(
@@ -238,6 +233,7 @@ class App extends Component {
                       )}
                   >
                     <div className="search--body">
+                      <label className="label">Search</label>
                       <div className="search--input-wrapper">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -259,8 +255,10 @@ class App extends Component {
                           className="search--input"
                         />
                       </div>
-                      {languageCheckboxes}
-
+                      <fieldset>
+                        <legend className="legend">Filter by language</legend>
+                        {languageCheckboxes}
+                      </fieldset>
                       <RaisedButton
                         className="search--submit"
                         fullWidth={true}
