@@ -106,7 +106,12 @@ class App extends Component {
             <h2>
               We couldnt find any projects that match your search criteria
             </h2>
-            <p>Try searching with some different keywords or filters 😎</p>
+            <p>
+              Try searching with some different keywords or filters{" "}
+              <span role="img" aria-label="img">
+                😎
+              </span>
+            </p>
           </div>
         </div>
       );
@@ -210,7 +215,7 @@ class App extends Component {
     if (this.state.searchResultNumber > 30) {
       pagination = (
         <div>
-          <a href="#">Next page</a>
+          <a href="/todo">Next page</a>
         </div>
       );
     }
