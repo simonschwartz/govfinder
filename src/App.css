@@ -174,4 +174,11 @@ legend {
   .search-results__number {
     padding-left: 1.75em;
   }
+  .sticky {
+    position: -webkit-sticky !important;
+    position: -moz-sticky !important;
+    position: -ms-sticky !important;
+    position: sticky !important;
+    top: 2em;
+  }
 }

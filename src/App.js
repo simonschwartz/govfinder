@@ -75,7 +75,7 @@ class App extends Component {
         .join("+");
     }
 
-    const endpoint = `https://api.github.com/search/repositories?q=${keywords}+${topicsParam}+${languagesParam}`;
+    const endpoint = `https://api.github.com/search/repositories?q=${keywords}${topicsParam}+${languagesParam}`;
 
     fetch(endpoint)
       .then(response => {
@@ -205,6 +205,16 @@ class App extends Component {
       );
     }
 
+    let pagination = null;
+
+    if (this.state.searchResultNumber > 30) {
+      pagination = (
+        <div>
+          <a href="#">Next page</a>
+        </div>
+      );
+    }
+
     return (
       <MuiThemeProvider>
         <div className="App">
@@ -220,7 +230,7 @@ class App extends Component {
           <Container>
             <Row>
               {/* Search options box */}
-              <Col md={4}>
+              <Col md={4} className="sticky">
                 <Paper zDepth={4}>
                   <form
                     onSubmit={e =>
@@ -284,6 +294,7 @@ class App extends Component {
                 <ul className="search-results__container">
                   {formatSearchResults}
                 </ul>
+                {pagination}
               </Col>
             </Row>
           </Container>
