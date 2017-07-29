@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,900');
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  font-weight: 500;
+}
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -15,6 +22,7 @@ ul {
 /*Search container*/
 .search--body {
   padding: 1.5em;
+  margin-bottom: 2em;
 }
 
 .search--header {
@@ -57,6 +65,25 @@ ul {
 
 /*Search results*/
 
+.search-results__container {
+  margin-top: 0;
+}
+
+.search-reulsts__no-results {
+  text-align: center;
+}
+
+.search-results__number {
+  color: #485265;
+  font-size: 1.2rem;
+  margin-bottom: 2em;
+}
+
+.search-results__number strong {
+  color: #000;
+  font-weight: 700;
+}
+
 .search-result--item {
   position: relative;
   list-style: none;
@@ -96,5 +123,8 @@ ul {
 @media (min-width: 600px) {
   .search-results__container {
     padding-left: 2em;
+  }
+  .search-results__number {
+    padding-left: 1.75em;
   }
 }
