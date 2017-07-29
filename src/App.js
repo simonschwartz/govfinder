@@ -9,6 +9,9 @@ import Snackbar from "material-ui/Snackbar";
 import Paper from "material-ui/Paper";
 import { Container, Row, Col } from "react-grid-system";
 import Moment from "moment";
+import Logo from "./topguntocat.png";
+import Inspectocat from "./inspectocat.jpg";
+import LogoBefore from "./logobefore.png";
 
 class App extends Component {
   constructor() {
@@ -94,13 +97,17 @@ class App extends Component {
     if (searchResults.length === 0 && this.state.loading === false) {
       formatSearchResults = (
         <div className="search-reulsts__no-results">
-          <h2>
-            <span role="img" aria-label="sorry emoji">
-              😓
-            </span>{" "}
-            <br />We couldnt find any projects that match your search criteria
-          </h2>
-          <p>Im sorry. Try searching with some different keywords or filters</p>
+          <img
+            src={Inspectocat}
+            alt="logo"
+            className="search-reulsts__no-results--image"
+          />
+          <div className="search-reulsts__no-results--body">
+            <h2>
+              We couldnt find any projects that match your search criteria
+            </h2>
+            <p>Try searching with some different keywords or filters 😎</p>
+          </div>
         </div>
       );
     } else {
@@ -202,7 +209,13 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="App">
           <Container>
-            <h1>Govfinder</h1>
+            <header className="app-banner">
+              <img src={LogoBefore} alt="" className="app-banner__logo" />
+              <h1 className="app-banner__title">
+                <span>Gov</span>finder
+              </h1>
+              <img src={Logo} alt="logo" className="app-banner__logo" />
+            </header>
           </Container>
           <Container>
             <Row>

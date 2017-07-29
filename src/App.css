@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,900');
 
+/*Globals*/
 h1,
 h2,
 h3 {
@@ -17,6 +18,30 @@ a {
 
 ul {
   padding-left: 0;
+}
+
+/*App header*/
+.app-banner {
+  padding: 1.5em 0 2em;
+  position: relative;
+  overflow: hidden;
+  display: table;
+}
+
+.app-banner__logo {
+  height: 80px;
+}
+
+.app-banner__title {
+  display: table-cell;
+  vertical-align: middle;
+  padding-top: 15px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: .1em;
+  font-weight: 700;
+  color: rgb(33, 33, 33);
 }
 
 /*Search container*/
@@ -71,6 +96,11 @@ ul {
 
 .search-reulsts__no-results {
   text-align: center;
+}
+
+.search-reulsts__no-results--image {
+  width: 200px;
+  margin-bottom: 1em;
 }
 
 .search-results__number {
