@@ -6,6 +6,8 @@ import TextField from "material-ui/TextField";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import RaisedButton from "material-ui/RaisedButton";
 import Snackbar from "material-ui/Snackbar";
+import Paper from "material-ui/Paper";
+import { Container, Row, Col } from "react-grid-system";
 
 class App extends Component {
   constructor() {
@@ -51,7 +53,10 @@ class App extends Component {
     this.setState({ filterLanguages: languages });
   }
 
-  fetchSearchResults(topics, languages, sort, keywords) {
+  fetchSearchResults(topics, languages, sort, keywords, event) {
+    if (event) {
+      event.preventDefault();
+    }
     this.setState({ open: true });
 
     const topicsParam = topics
@@ -107,30 +112,79 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div className="App">
-          <h1>Govfinder</h1>
+          <Container>
+            <h1>Govfinder</h1>
+          </Container>
+          <Container>
+            <Row>
+              {/* Search options box */}
+              <Col md={4}>
+                <Paper zDepth={3}>
+                  <header>
+                    <Paper zDepth={1} className="search--header">
+                      <h2>Find projects</h2>
+                    </Paper>
+                  </header>
+                  <form
+                    onSubmit={e =>
+                      this.fetchSearchResults(
+                        this.state.filterTopics,
+                        this.state.filterLanguages,
+                        "sort",
+                        this.state.keywords,
+                        e
+                      )}
+                  >
+                    <div className="search--body">
+                      <div classnName="search--input-wrapper">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="search--icon"
+                          fill="#B2B2B2"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          width="24"
+                        >
+                          <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                          <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                        <TextField
+                          hintText="Keywords..."
+                          hintStyle={{ marginLeft: "30px" }}
+                          underlineFocusStyle={{ borderColor: "#002865" }}
+                          value={this.state.keywords}
+                          onChange={this.handleKeywordsInputChange}
+                          className="search--input"
+                        />
+                      </div>
+                      {languageCheckboxes}
+                    </div>
 
-          <TextField
-            floatingLabelText="Keyword"
-            value={this.state.keywords}
-            onChange={this.handleKeywordsInputChange}
-          />
-          {languageCheckboxes}
+                    <RaisedButton
+                      fullWidth={true}
+                      backgroundColor="#485265"
+                      labelColor="#FFF"
+                      onClick={() =>
+                        this.fetchSearchResults(
+                          this.state.filterTopics,
+                          this.state.filterLanguages,
+                          "sort",
+                          this.state.keywords
+                        )}
+                      label="Update results"
+                    />
+                  </form>
+                </Paper>
+              </Col>
 
-          <RaisedButton
-            fullWidth={true}
-            onClick={() =>
-              this.fetchSearchResults(
-                this.state.filterTopics,
-                this.state.filterLanguages,
-                "sort",
-                this.state.keywords
-              )}
-            label="Update results"
-          />
-
-          <ul>
-            {formatSearchResults}
-          </ul>
+              {/* Search results */}
+              <Col md={8}>
+                <ul>
+                  {formatSearchResults}
+                </ul>
+              </Col>
+            </Row>
+          </Container>
 
           <Snackbar
             open={this.state.open}

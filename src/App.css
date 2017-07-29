@@ -1,1 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.search--body {
+  padding: 1.5em;
+}
+
+.search--header {
+  background-color: #002865 !important;
+  padding: 1em 1.5em;
+  overflow: hidden;
+  text-align: center;
+}
+
+.search--input {
+  width: 100% !important;
+  box-sizing: border-box;
+  margin-bottom: 1.25em;
+}
+
+.search--input input {
+  padding-left: 30px !important;
+}
+
+.search--input-wrapper {
+  position: relative;
+}
+
+.search--icon {
+  position: absolute;
+  padding-top: 10px;
+}
+
+.search--header h2 {
+  color: #fff;
+  font-weight: normal;
+  margin: 0;
+  font-size: 1.25rem;
+}
